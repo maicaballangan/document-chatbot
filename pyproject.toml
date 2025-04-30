@@ -1,0 +1,152 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = "Assistant API"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "fastapi[standard]<1.0.0,>=0.114.2",
+    "python-multipart<1.0.0,>=0.0.7",
+    "email-validator<3.0.0.0,>=2.1.0.post1",
+    "passlib[bcrypt]<2.0.0,>=1.7.4",
+    "pydantic>2.0",
+    "emails<1.0,>=0.6",
+    "jinja2<4.0.0,>=3.1.4",
+    "httpx<1.0.0,>=0.25.1",
+    "pydantic-settings<3.0.0,>=2.2.1",
+    "sentry-sdk[fastapi]<2.0.0,>=1.40.6",
+    "pyjwt<3.0.0,>=2.8.0",
+    "tortoise-orm>=0.21.7",
+    "fastapi-pagination>=0.12.32",
+    "asyncpg>=0.30.0",
+    "aerich>=0.8.1",
+    "tomli-w>=1.2.0",
+    "boto3>=1.36.26",
+    "httpx-retries>=0.2.3",
+    "redis>=5.2.1",
+    "llama-index>=0.12.20",
+    "llama-index-vector-stores-elasticsearch>=0.4.1",
+    "llama-index-storage-docstore-redis>=0.3.0",
+    "llama-index-storage-index-store-redis>=0.4.0",
+    "llama-index-vector-stores-redis>=0.5.0",
+    "llama-index-embeddings-gemini>=0.3.1",
+    "llama-index-llms-gemini>=0.4.11",
+    "stripe>=11.6.0",
+    "iso4217>=1.12.20240625",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest<8.0.0,>=7.4.3",
+    "pytest-asyncio>=0.23.8",
+    "coverage<8.0.0,>=7.4.3",
+    "ruff>=0.6.7",
+    "pre-commit<4.0.0,>=3.6.2",
+    "mypy>=1.11.2",
+    "types-passlib<2.0.0.0,>=1.7.7.20240106",
+    "deptry>=0.21.1",
+    "pytest-httpx>=0.30.0",
+]
+
+[tool.setuptools]
+py-modules = [
+    "app",
+]
+
+[tool.mypy]
+files = [
+    "app",
+]
+exclude = [
+    "venv",
+    ".venv",
+]
+strict = true
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[tool.ruff]
+target-version = "py310"
+indent-width = 4
+line-length = 120
+fix = true
+
+[tool.ruff.lint]
+select = [
+    "YTT",
+    "S",
+    "B",
+    "A",
+    "C4",
+    "T10",
+    "SIM",
+    "C90",
+    "E",
+    "W",
+    "F",
+    "PGH",
+    "UP",
+    "RUF",
+    "TRY",
+]
+ignore = [
+    "E501",
+    "B008",
+    "B904",
+    "PGH003",
+    "A002",
+    "TRY003",
+    "RUF012",
+    "TRY300",
+    "PGH004"
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "S101",
+    "S106",
+    "S311",
+]
+"app/legalai/prompts/**" = ["W"]
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.format]
+preview = true
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
+exclude = [
+    "app/legalai/prompts/**"
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = [
+    "app",
+]
+
+[tool.aerich]
+tortoise_orm = "app.main.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"

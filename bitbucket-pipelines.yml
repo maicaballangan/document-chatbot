@@ -1,0 +1,32 @@
+#  Template python-build
+
+#  This template allows you to validate your python code.
+#  The workflow allows running tests and code linting on the default branch.
+
+image: python:3.11
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: Test
+          services:
+            - redis
+          caches:
+            - pip
+          script:
+            - pip install uv
+            - cp .env.local .env
+            - make install
+            - make test
+      - step:
+          name: Lint code
+          script:
+            # Enforce style consistency across Python projects
+            - pip install uv
+            - make install
+            - make lint
+definitions:
+  services:
+    redis:
+      image: redis/redis-stack-server

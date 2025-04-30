@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  a.delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e0245e;  /* Adjust background color as desired */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+  a.delete-button:hover {
+    background-color: #c91f50;  /* Adjust hover color as desired */
+  }
+</style>
+</head>
+  <body>
+
+    <p>Hello {{ name }},</p>
+
+
+    <p> We have received your request to close your account. While we are sorry to see you go, we respect your decision. </p>
+
+    <p>
+      <b>Important:</b> Deleting your account will permanently remove all associated data, so please proceed with caution. <br>
+      If you'd like to keep your account active, simply disregard this email.
+    </p>
+
+
+    <br>
+    <p> To proceed with the permanent deletion of your account and to review the data deletion process, please click the button below: <br>
+      <a href="{{ remove_account_url }}" class="delete-button">Delete my account</a>
+      <p style="font-size: 12px; color: #919191;">Note: The link will expire in {{ expiration_hours }} hours.</p>
+    </p>
+
+    <br>
+    <p>
+      Sincerely,<br>
+      The Sample AI Team
+    </p>
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Free Trial is LIVE!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        .content p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Your Free Trial is LIVE!</h3>
+        </div>
+        <div class="content">
+            <p>Hey {{ name }},</p>
+            <p>Welcome to Assistant AI! Your 3-day free trial is live and we have a <span class="highlight">surprise</span>!</p>
+            <p><strong>We’ve given you <span class="highlight">UNLIMITED ACCESS TO ALL OF THE TOOLS!</span></strong></p>
+            <ul>
+                <li><strong>PolicyPro:</strong> Chat with any property insurance document to get precise answers in seconds.</li>
+                <li><strong>Plus:</strong> Lease agreement? Confusing contracts? Upload your files, ask what you need, and let us do the rest.</li>
+                <li><strong>Premium:</strong> The power of Plus but with <span class="highlight">unlimited</span> documents and questions, conversation sharing, and multiple team members for the price of one to seamlessly coordinate with your team!</li>
+            </ul>
+            <p>Enjoy exploring each tool and seeing how AI can help make life easier.</p>
+            <p>Ready to keep using these tools after your trial? Choose your plan anytime.</p>
+            <a href="{{ subscription_url }}" class="cta-button" style="display: inline-block; padding: 12px 24px; color: #ffffff !important; background-color: #4CAF50; border-radius: 4px; text-align: center; text-decoration: none; font-weight: bold; margin: 20px 0;">Choose plan</a>
+            <p>
+                Enjoy,<br>
+                The Sample AI Team
+            </p>
+        </div>
+    </div>
+</body>
+</html>
